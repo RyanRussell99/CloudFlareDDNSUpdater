@@ -10,7 +10,7 @@ while IFS= read -r line; do
     ZONE_ID=$line
   fi
   ((line_number++))
-done < "cloudFlareEnv.txt"
+done < "/CloudFlareDDNSUpdater/cloudFlareEnv.txt"
 
 CLOUDFLARE_LIST_DNS=$( curl --request GET --url https://api.cloudflare.com/client/v4/zones/$ZONE_ID/dns_records   --header 'Content-Type: application/json' --header "Authorization: Bearer $AUTH_TOKEN")
 
